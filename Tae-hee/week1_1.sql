@@ -1,0 +1,18 @@
+#프로그래머스 > 코딩테스트 연습 > SELECT > 서울에 위치한 식당 목록 출력하기
+SELECT 
+    R.REST_ID ,
+    I.REST_NAME,
+    I.FOOD_TYPE,
+    I.FAVORITES ,
+    I.ADDRESS ,
+    ROUND(AVG(R.REVIEW_SCORE),2) AS SCORE    
+    FROM REST_REVIEW AS R
+    INNER 
+    JOIN REST_INFO  AS I
+    ON (R.REST_ID = I.REST_ID)
+    GROUP BY 
+        (R.REST_ID)
+    HAVING I.ADDRESS LIKE '서울%'
+    ORDER BY SCORE DESC, I.FAVORITES DESC
+
+
