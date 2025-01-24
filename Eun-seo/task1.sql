@@ -1,9 +1,0 @@
--- 프로그래머스, 특정 세대의 대장균 찾기
--- https://school.programmers.co.kr/learn/courses/30/lessons/301650
-
-SELECT ED3.ID
-FROM ECOLI_DATA AS ED1
-INNER JOIN ECOLI_DATA AS ED2
-ON ED1.ID = ED2.PARENT_ID AND ED1.PARENT_ID IS NULL
-INNER JOIN ECOLI_DATA AS ED3
-ON ED3.PARENT_ID = ED2.ID
