@@ -1,0 +1,10 @@
+-- 프로그래머스 조건에 맞는 사원 정보 조회하기
+-- https://school.programmers.co.kr/learn/courses/30/lessons/284527
+SELECT 
+    SUM(B.SCORE) AS SCORE, 
+    A.EMP_NO, A.EMP_NAME, A.POSITION, A.EMAIL
+FROM HR_EMPLOYEES AS A
+JOIN HR_GRADE AS B ON A.EMP_NO = B.EMP_NO
+JOIN HR_DEPARTMENT AS C ON A.DEPT_ID = C.DEPT_ID
+GROUP BY A.EMP_NO
+ORDER BY SCORE DESC LIMIT 1
