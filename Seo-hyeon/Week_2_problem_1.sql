@@ -1,0 +1,4 @@
+# 가격대 별 상품 개수 구하기 : 레벨 2
+# 배운점 : FLOOR(숫자) : 숫자를 내림하는 함수
+select FLOOR(PRICE/10000)*10000 AS PRICE_GROUP, COUNT(*) as PRODUCTS from PRODUCT 
+GROUP BY  PRICE_GROUP ORDER BY  PRICE_GROUP ASC
