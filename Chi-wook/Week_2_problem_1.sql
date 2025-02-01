@@ -1,0 +1,8 @@
+-- https://school.programmers.co.kr/learn/courses/30/lessons/301650
+
+SELECT e.ID AS ID
+FROM ECOLI_DATA gp
+LEFT JOIN ECOLI_DATA p ON gp.ID = p.PARENT_ID
+LEFT JOIN ECOLI_DATA e ON p.ID = e.PARENT_ID
+WHERE gp.PARENT_ID IS NULL AND e.ID IS NOT NULL
+ORDER BY e.ID
