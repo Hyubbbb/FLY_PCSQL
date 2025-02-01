@@ -10,14 +10,12 @@ WITH RECURSIVE GEN AS (
     
     SELECT D.ID, D.PARENT_ID, GENERATION + 1
     FROM ECOLI_DATA D JOIN GEN G 
-    ON G.ID = D.PARENT_ID 
-),
+    ON G.ID = D.PARENT_ID),
 GEN2 AS (
     SELECT ID, PARENT_ID, GENERATION, (SELECT COUNT(*)
                                        FROM GEN  D
                                        WHERE G.ID = D.PARENT_ID) CHILD_COUNT
-    FROM GEN G
-)
+    FROM GEN G)
 
 SELECT COUNT(*) COUNT, GENERATION 
 FROM GEN2

@@ -1,0 +1,11 @@
+-- 코드를 입력하세요
+-- https://school.programmers.co.kr/learn/courses/30/lessons/151137
+WITH OPTION_CAR AS (
+    SELECT CAR_TYPE
+    FROM CAR_RENTAL_COMPANY_CAR
+    WHERE OPTIONS LIKE '%통풍시트%' OR OPTIONS LIKE '%열선시트%' OR OPTIONS LIKE '%가죽시트%'
+)
+SELECT CAR_TYPE, COUNT(*) AS CARS
+FROM OPTION_CAR
+GROUP BY CAR_TYPE
+ORDER BY CAR_TYPE;
