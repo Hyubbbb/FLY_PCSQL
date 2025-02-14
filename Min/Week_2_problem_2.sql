@@ -1,20 +1,14 @@
 -- programmers : SQL 고득점 Kit
 -- SELECT
--- 대장균의 크기에 따라 분류하기 1 (Level 3)
+-- 3월에 태어난 여성 회원 목록 출력하기 (Level 2)
 
 
 -- 문제
--- 대장균 개체의 크기가 100 이하라면 'LOW', 100 초과 1000 이하라면 'MEDIUM', 1000 초과라면 'HIGH' 라고 분류합니다. 
--- 대장균 개체의 ID(ID) 와 분류(SIZE)를 출력하는 SQL 문을 작성해주세요.
--- 이때 결과는 개체의 ID 에 대해 오름차순 정렬해주세요.
+-- MEMBER_PROFILE 테이블에서 생일이 3월인 여성 회원의 ID, 이름, 성별, 생년월일을 조회하는 SQL문을 작성해주세요. 
+-- 이때 전화번호가 NULL인 경우는 출력대상에서 제외시켜 주시고, 결과는 회원ID를 기준으로 오름차순 정렬해주세요.
 
-SELECT 
-    ID, 
-    CASE 
-        WHEN SIZE_OF_COLONY <= 100 THEN 'LOW'
-        WHEN SIZE_OF_COLONY <= 1000 THEN 'MEDIUM'
-        ELSE 'HIGH'
-    END AS SIZE
-FROM ECOLI_DATA
-ORDER BY ID;
+SELECT MEMBER_ID, MEMBER_NAME,GENDER,DATE_FORMAT(DATE_OF_BIRTH, '%Y-%m-%d')AS DATE_OF_BIRTH 
+FROM MEMBER_PROFILE
+WHERE MONTH(DATE_OF_BIRTH)=3 AND TLNO IS NOT NULL AND GENDER ='W'
+ORDER BY MEMBER_ID
 
