@@ -1,4 +1,4 @@
--- 프로그래머스, 중복 제거하기
+-- 프로그래머스, 특정 세대의 대장균 찾기
 -- https://school.programmers.co.kr/learn/courses/30/lessons/301650
 
 SELECT E.ID AS ID
