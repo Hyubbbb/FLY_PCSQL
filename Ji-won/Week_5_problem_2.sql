@@ -1,0 +1,9 @@
+-- 프로그래머스, 중복 제거하기
+-- https://school.programmers.co.kr/learn/courses/30/lessons/301650
+
+SELECT E.ID AS ID
+FROM ECOLI_DATA GP
+LEFT JOIN ECOLI_DATA P ON GP.ID = P.PARENT_ID
+LEFT JOIN ECOLI_DATA E ON P.ID = E.PARENT_ID
+WHERE GP.PARENT_ID IS NULL AND E.ID IS NOT NULL
+ORDER BY E.ID
